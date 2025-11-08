@@ -54,6 +54,10 @@ class ModuleMain(base: XposedInterface, param: ModuleLoadedParam) : XposedModule
         log("module apk path: " + this.applicationInfo.sourceDir)
         log("----------")
 
+        if (param.packageName == "com.android.settings") {
+            System.loadLibrary("native")
+        }
+
         if (!param.isFirstPackage) return
 
         val prefs = getRemotePreferences("test")

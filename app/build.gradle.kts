@@ -7,6 +7,12 @@ android {
     namespace = "io.github.libxposed.example"
     compileSdk = 36
 
+    externalNativeBuild.cmake {
+        path("src/main/cpp/CMakeLists.txt")
+        buildStagingDirectory = layout.buildDirectory.get().asFile
+    }
+
+
     defaultConfig {
         minSdk = 24
         targetSdk = 36
